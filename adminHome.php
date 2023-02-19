@@ -10,30 +10,26 @@ $date = date('d-m-y H:i:s');
 
 <head>
     <?php  include('modules/head.php'); ?>
-    <link href="css/styles.css" rel="stylesheet">
+
 </head>
 
 
 <body>
 
-    <div class="container">
+
+
+
+
+    <div class="container mx-auto bg-orange-200">
         <h2>Admin Home</h2>
         
         <p> You are logged in as: <?php echo $_SESSION['username']. " on ". $date; ?> </p>
 <a href = "logout.php">Log out </a>
-     <div class = "cpanel">
 
-<div class="optionBox">1</div>
-<div class="optionBox">2</div>
-<div class="optionBox">3</div>
-<div class="optionBox">4</div>
-<div class="optionBox">5</div>
-<div class="optionBox">6</div>
-     </div> 
 
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
 
 </html>

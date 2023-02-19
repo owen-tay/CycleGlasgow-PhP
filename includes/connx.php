@@ -1,9 +1,10 @@
 <?php
 
 $servername = "localhost";
-$username = "logindatabaseuser";
-$password = "30SvG6*QV7/eTLyI";
-$dbase = "login";
+$username = "root";
+$password = "";
+$dbase = "erevive";
+
 
 //mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // for error reporting
 try {

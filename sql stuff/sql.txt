@@ -1,0 +1,24 @@
+CREATE TABLE user_details (
+    userID int NOT NULL AUTO_INCREMENT,
+    user varchar(100) NOT NULL,
+    pwd varchar(300) NOT NULL,
+    admin varchar(3),
+    
+    PRIMARY KEY(userID)
+
+
+);
+
+
+CREATE TABLE listings(
+    ProductID int(300) NOT NULL AUTO_INCREMENT,
+    ProductTitle varchar(30) NOT NULL,
+    BrandName varchar(30) NOT NULL,
+    ProductAge varchar(30) NOT NULL,
+    ProductCondition varchar(30) NOT NULL, 
+    Price float(8,2) NOT NULL,
+    ProductDescription varchar(500) NOT NULL,
+    ProductImage varchar(200) NOT NULL,
+    PRIMARY KEY (ProductID)
+
+);
