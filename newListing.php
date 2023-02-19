@@ -5,7 +5,6 @@ include('includes/session-chk.php');
 
 $date = date('d-m-y H:i:s');
 
-
 ?>
 
 <!DOCTYPE html>
@@ -21,39 +20,39 @@ $date = date('d-m-y H:i:s');
     //this is to check the post method works
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        //another if statement to check if the username already exists 
         //vars and setting up statement
-        $username = $_POST['username'];
+        //form inputs variables
+        $user = $_SESSION['username'];
+        $Product = $_POST['Product'];
+        $Brand = $_POST['Brand'];
+        $Age = $_POST['Age'];
+        $Condition = $_POST['Condition'];
+        $Price = $_POST['Price'];
+        $Description = $_POST['Description'];
+        $Image = $_POST['image'];
 
 
-        if ($username == $user_db) {
-            $errorMsg = "username exists";
-        } else {
 
 
-            //form inputs variables
-            $username = $_POST['username'];
-            //define username as ses
-            $username = $_SESSION['username'];
-            //prepared sql statement with the var $stmt
-            //(conn from conx file uses prepare function to insert info into the user details table)
-            $stmt = $conn->prepare("INSERT INTO listings (user, pwd) VALUES (?,?)");
 
-            //now we "bind" the vars to the statement. This should tell the statment the kind of values to expect
-            //eg strings "ss (string string)
-            $stmt->bind_param("ss", $username, $password);
+        //prepared sql statement with the var $stmt
+        //(conn from conx file uses prepare function to insert info into the user details table)
+        $stmt = $conn->prepare("INSERT INTO listings (ProductTitle, BrandName, ProductAge, ProductCondition, Price, ProductDescription, ProductImage, username) VALUES (?,?,?,?,?,?,?,?)");
 
-            //now we run the statement
-            $stmt->execute();
-            $stmt->close();
-            $conn->close();
+        //now we "bind" the vars to the statement. This should tell the statment the kind of values to expect
+        //eg strings "ss (string string)
+        $stmt->bind_param("ssssssss", $Product, $Brand, $Age, $Condition, $Price, $Description, $Image, $user);
 
-            //then we navigate to login.php and close this script!
-            header("location: login-start.php");
-            exit();
-        }
+        //now we run the statement
+        $stmt->execute();
+        $stmt->close();
+        $conn->close();
 
+        //then we navigate to login.php and close this script!
+        //header("location: login-start.php");
+        exit();
     }
+
 
     ?>
 
@@ -130,19 +129,40 @@ $date = date('d-m-y H:i:s');
                 <input type="text" id="Brand" name="Brand" class="form-control" required>
                 <label class="form-label" for="Brand">Brand Name</label>
             </div>
-            <!-- Brand input -->
+            <!-- age input -->
             <div class="form-outline mb-4">
                 <input type="text" id="Age" name="Age" class="form-control" required>
                 <label class="form-label" for="Age">Product Age</label>
             </div>
+            <!-- Condition input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="Condition" name="Condition" class="form-control" required>
+                <label class="form-label" for="Condition">Condition</label>
+            </div>
+            <!-- Price input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="Price" name="Price" class="form-control" required>
+                <label class="form-label" for="Price">Price in £</label>
+            </div>
+            <!-- Description input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="Description" name="Description" class="form-control" required>
+                <label class="form-label" for="Description">Description</label>
+            </div>
+            <!-- iamge (temp) input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="image" name="image" class="form-control" required>
+                <label class="form-label" for="image">image</label>
+            </div>
+
 
 
 
 
             <!-- Submit button -->
             <input type="submit" name="submit" class="p-2 pl-6 pr-6 rounded-xl bg-orange-300 hover:bg-orange-200"
-                value="Register">
-            <a class="p-2 rounded-xl bg-green-400 hover:bg-green-300" href="login-start.php">Login Page</a>
+                value="Submit">
+            <a class="p-2 rounded-xl bg-green-400 hover:bg-green-300" href="adminHome.php">Back</a>
 
 
         </form>
