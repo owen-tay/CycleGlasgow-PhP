@@ -61,6 +61,7 @@ if ($uploadOk == 0) {
         $Brand = $_POST['Brand'];
         $Age = $_POST['Age'];
         $Condition = $_POST['Condition'];
+        $Category = $_POST['Category'];
         $Price = $_POST['Price'];
         $Description = $_POST['Description'];
         $Image = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -71,11 +72,11 @@ if ($uploadOk == 0) {
 
         //prepared sql statement with the var $stmt
         //(conn from conx file uses prepare function to insert info into the user details table)
-        $stmt = $conn->prepare("INSERT INTO listings (ProductTitle, BrandName, ProductAge, ProductCondition, Price, ProductDescription, ProductImage, username) VALUES (?,?,?,?,?,?,?,?)");
+        $stmt = $conn->prepare("INSERT INTO listings (ProductTitle, BrandName, ProductAge, ProductCondition, Category, Price, ProductDescription, ProductImage, username) VALUES (?,?,?,?,?, ?,?,?,?)");
 
         //now we "bind" the vars to the statement. This should tell the statment the kind of values to expect
         //eg strings "ss (string string)
-        $stmt->bind_param("ssssssss", $Product, $Brand, $Age, $Condition, $Price, $Description, $Image, $user);
+        $stmt->bind_param("sssssssss", $Product, $Brand, $Age, $Condition, $Category, $Price, $Description, $Image, $user);
 
         //now we run the statement
         $stmt->execute();

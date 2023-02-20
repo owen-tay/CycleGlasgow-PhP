@@ -4,6 +4,7 @@ include('includes/connx.php');
 include('includes/session-chk.php');
 
 $date = date('d-m-y H:i:s');
+echo $_SESSION['username'];
 
 ?>
 
@@ -16,45 +17,8 @@ $date = date('d-m-y H:i:s');
 </head>
 
 <body>
-    <?php
-    //this is to check the post method works
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        //vars and setting up statement
-        //form inputs variables
-        $user = $_SESSION['username'];
-        $Product = $_POST['Product'];
-        $Brand = $_POST['Brand'];
-        $Age = $_POST['Age'];
-        $Condition = $_POST['Condition'];
-        $Price = $_POST['Price'];
-        $Description = $_POST['Description'];
-        $Image = $_POST['image'];
 
 
-
-
-
-        //prepared sql statement with the var $stmt
-        //(conn from conx file uses prepare function to insert info into the user details table)
-        $stmt = $conn->prepare("INSERT INTO listings (ProductTitle, BrandName, ProductAge, ProductCondition, Price, ProductDescription, ProductImage, username) VALUES (?,?,?,?,?,?,?,?)");
-
-        //now we "bind" the vars to the statement. This should tell the statment the kind of values to expect
-        //eg strings "ss (string string)
-        $stmt->bind_param("ssssssss", $Product, $Brand, $Age, $Condition, $Price, $Description, $Image, $user);
-
-        //now we run the statement
-        $stmt->execute();
-        $stmt->close();
-        $conn->close();
-
-        //then we navigate to login.php and close this script!
-        //header("location: login-start.php");
-        exit();
-    }
-
-
-    ?>
 
     <nav class="bg-green-400 border-gray-200 px-2 sm:px-4 py-2.5">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
@@ -117,7 +81,7 @@ $date = date('d-m-y H:i:s');
 
     <div class="container bg-orange-100 mx-auto justify-center max-w-md p-5 rounded-lg mt-8">
         <h2 class="mb-8 text-xl text-center">New Listing </h2>
-        <form method="POST" name="login_form" action=" <?php echo strip_tags(htmlentities($_SERVER["PHP_SELF"])); ?>">
+        <form method="post" enctype="multipart/form-data" name="login_form" action="addProduct.php">
             <!--Convert some characters to HTML entities and strips HTML and PHP tags from a string -->
             <!-- title input -->
             <div class="form-outline mb-4">
@@ -130,14 +94,39 @@ $date = date('d-m-y H:i:s');
                 <label class="form-label" for="Brand">Brand Name</label>
             </div>
             <!-- age input -->
+            <label class="form-label" for="Age">Product Age</label>
             <div class="form-outline mb-4">
-                <input type="text" id="Age" name="Age" class="form-control" required>
-                <label class="form-label" for="Age">Product Age</label>
+                <select id="Age" name="Age" class="form-control" required>
+                    <option value="1 Year">1 Year</option>
+                    <option value="2 Years">2 Year</option>
+                    <option value="3 Years">3 Year</option>
+                    <option value="4 Years">4 Year</option>
+                    <option value="5+ Years">5 Year</option>
+                </select>
+
+
             </div>
             <!-- Condition input -->
+            <label class="form-label" for="Condition">Condition</label>
             <div class="form-outline mb-4">
-                <input type="text" id="Condition" name="Condition" class="form-control" required>
-                <label class="form-label" for="Condition">Condition</label>
+                <select id="Condition" name="Condition" class="form-control" required>
+                    <option value="Poor">Poor</option>
+                    <option value="Good">Good</option>
+                    <option value="New">New</option>
+                </select>
+            </div>
+            <!-- Condition input -->
+            <label class="form-label" for="Category">Category</label>
+            <div class="form-outline mb-4">
+                <select id="Category" name="Category" class="form-control" required>
+                    <option value="Camera">Camera</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Computer">Computer</option>
+                    <option value="TV's">TV's</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Music">Music</option>
+                </select>
             </div>
             <!-- Price input -->
             <div class="form-outline mb-4">
@@ -149,23 +138,33 @@ $date = date('d-m-y H:i:s');
                 <input type="text" id="Description" name="Description" class="form-control" required>
                 <label class="form-label" for="Description">Description</label>
             </div>
-            <!-- iamge (temp) input -->
+            <!-- iamge (temp) input 
             <div class="form-outline mb-4">
-                <input type="text" id="image" name="image" class="form-control" required>
-                <label class="form-label" for="image">image</label>
+                <input type="file" name="image" id="image" class="form-control">
+                <label class="form-label" for="image">Image</label>
+
             </div>
+            -->
+
+            <form action="addProduct.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                <input type="file" required name="fileToUpload" id="fileToUpload required">
+                <input type="submit" value="Upload Image"
+                    class="p-2 pl-6 pr-6 rounded-xl bg-orange-300 hover:bg-orange-200" name="submit">
+            </form>
+
 
 
 
 
 
             <!-- Submit button -->
-            <input type="submit" name="submit" class="p-2 pl-6 pr-6 rounded-xl bg-orange-300 hover:bg-orange-200"
-                value="Submit">
+
             <a class="p-2 rounded-xl bg-green-400 hover:bg-green-300" href="adminHome.php">Back</a>
 
 
         </form>
+
 
 
     </div>

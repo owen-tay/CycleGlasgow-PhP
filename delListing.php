@@ -4,10 +4,10 @@ include('includes/connx.php');
 include('includes/session-chk.php');
 
 $date = date('d-m-y H:i:s');
+$get = $_GET["ProductID"]
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +16,10 @@ $date = date('d-m-y H:i:s');
 
 </head>
 
-
 <body>
+    <?php
+
+    ?>
 
     <nav class="bg-green-400 border-gray-200 px-2 sm:px-4 py-2.5">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
@@ -37,7 +39,7 @@ $date = date('d-m-y H:i:s');
                 </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul
+            <ul
                     class="flex flex-col p-4 mt-4   rounded-lg bg-green-400 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md: md:bg-green-400  md: ">
                     <li>
                         <a href="index.php"
@@ -94,37 +96,57 @@ $date = date('d-m-y H:i:s');
         </div>
 
     </nav>
-    <div class="bg-green-300 h-2 rounded-b-xl	">
-
-
-    </div>
-
-
-
-    <div class="container mx-auto">
-        <h2 class="text-4xl text-center mt-4">Your Posts</h2>
-
-        <h3 class="text-center m-4 text-xl"> Hello 
-            <?php echo $_SESSION['username'] .  '!' ?>
-
-
-
+    <div class="bg-green-300 h-2 rounded-b-xl">
 
     </div>
-    <div id="showcase" class=" flex flex-wrap mx-auto justify-center">
-        <div class="">
-            <a class="p-2 rounded-xl bg-green-400 hover:bg-green-300" href="newListing.php">New Listing +</a>
-        </div>
-    </div>
-    <div id="showcase" class=" flex flex-wrap mx-auto justify-center">
-        <?php
-        //here we can do some funky stuff with "while"
-        include('includes/viewOwnRecords.php');
+
+
+
+
+    <div id="showcase" class="container flex flex-wrap"> <?php
+            if (isset($_GET['ProductID'])) {
+                // id index exists
+            
+                if ($stmt = $conn->prepare("SELECT * FROM listings WHERE ProductID = '$get' ")) {
+                    $stmt->execute(); // execute sql statement
+                    $result = $stmt->get_result(); //returns the results from sql statement
+            
         
-        ?>
-    </div>
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) { //fetches one row of data from the results set. Continues until there are no more rows
+            
+                        echo '<div class= "container text-center mx-auto text-lg mb-5">';
+                        echo '<h1 class="m-5 text-4xl font-bold text-center"> Are you sure you want to Delete' .  $row['ProductTitle'] . '? </h1>';
+                        echo '<a href="deleteScript.php?ProductID=' . $get . '">' . '<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                            Yes
+                          </button>
+                          <a href="adminHome.php">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full  ">
+                            No
+                          </button>';
+                        echo '</div>';
+        
+        
+        
+                    }
+        
+                    $stmt->close(); // close sql statement - optional and depends on context
+                    $conn->close(); // close dbase connection - optional and depend on context
+            
+                }
+            }
+            else {
+                header('location:adminHome.php');
+
+            }
+    ?> </div>
+</div>
+
+   
+
+
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
-
-</html>

@@ -40,7 +40,7 @@ $get = $_GET["ProductID"]
                 </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul
+            <ul
                     class="flex flex-col p-4 mt-4   rounded-lg bg-green-400 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md: md:bg-green-400  md: ">
                     <li>
                         <a href="index.php"
@@ -59,6 +59,29 @@ $get = $_GET["ProductID"]
                                 echo "Login";
                             } else {
                                 echo "Account";
+
+                            }
+                            ?>
+
+
+
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php if (!isset($_SESSION['username'])) {
+                            echo " login-start.php";
+                        } else {
+                            echo "adminHome.php";
+                        } ?>" class="block py-2 pl-3 pr-4
+                            text-white rounded hover:bg-green-300 md:hover:bg-transparent md:border-0
+                            md:hover:bg-green-300 md:p-0 ">
+                            <?php if (!isset($_SESSION['username'])) {
+
+                            } else {
+
+                                echo '<a class="text-white" href="logout.php">Log out </a>';
+
                             }
                             ?>
 
@@ -95,7 +118,7 @@ $get = $_GET["ProductID"]
     
                 echo '<a href="product.php?ProductTitle=' . $row['ProductTitle'] . '">';
                 echo '<div id="card" class=" bg-amber-100 p-2 rounded-xl m-5 max-w-s">';
-                echo '<img src="./images/productimages/' . $row['ProductImage'] . '"' . ' class=" rounded-lg border-gray-300" alt="product image">';
+                echo '<img src="./' . $row['ProductImage'] . '"' . ' class="  w-80 rounded-lg border-gray-300" alt="product image">';
                 echo ' <div id="bottomCard" class="bg-orange-200 rounded-lg text-center"> ';
                 echo '</div>';
                 echo '</div>';
