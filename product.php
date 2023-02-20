@@ -130,6 +130,8 @@ $get = $_GET["ProductID"]
                 echo '<h1 class="text-2xl mt-2 ">' . 'Condition: ' .   $row['ProductCondition'] . '</h1>';
                 echo '<h1 class="text-2xl mt-2 ">' . 'Age: ' .   $row['ProductAge'] . '</h1>';
                 echo '<h1 class="text-2xl mt-8 ">' .   $row['ProductDescription'] . '</h1>';
+                echo '<h1 class="text-2xl mt-8 ">' .   $row['Category'] . '</h1>';
+
 
 
                 echo '</div>';

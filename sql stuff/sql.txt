@@ -22,3 +22,5 @@ CREATE TABLE listings(
     PRIMARY KEY (ProductID)
 
 );
+
+UPDATE listings SET ProductTitle ="EDIT" WHERE ProductID = "21"; 

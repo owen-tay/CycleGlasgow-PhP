@@ -30,10 +30,10 @@ if (isset($_GET['logged']) == "denied") {
         $password = $_POST['password'];
 
         //prepared select statement
-        $stmt = $conn->prepare("SELECT user, pwd from user_details where user = ?");
+        $stmt = $conn->prepare("SELECT user, pwd, isAdmin from user_details where user = ?");
         $stmt->bind_param("s", $username);
-        //takes results and binds them to these two vars
-        $stmt->bind_result($user_db, $pwd_db);
+        //takes results and binds them to these three vars
+        $stmt->bind_result($user_db, $pwd_db, $admin_db);
         //runs stmt
         $stmt->execute();
         //fetch
@@ -42,6 +42,9 @@ if (isset($_GET['logged']) == "denied") {
         //con statement to check if u & p match & if they do location > homepage 
         if (password_verify($password, $pwd_db) && $username == $user_db) {
             $_SESSION['username'] = $username; //session start
+            $_SESSION['isAdmin'] = $admin_db; //session start
+            echo $admin_db;
+            
             header('location:adminHome.php?logged=true');
             exit();
         } else {

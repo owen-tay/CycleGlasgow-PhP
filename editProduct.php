@@ -1,11 +1,15 @@
 <?php
 
+
+
 $target_dir = "images/productImages";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$get = $_GET["ProductID"];
 
-// Check if image file is a actual image or fake image
+
+ //Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
@@ -48,10 +52,12 @@ if ($uploadOk == 0) {
   }
 }
 
-
+  
 
  session_start(); include('includes/error-reporting.php');include('includes/connx.php');include('includes/session-chk.php');
     //this is to check the post method works
+    
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo $_SESSION['username'];
         //vars and setting up statement
@@ -65,6 +71,9 @@ if ($uploadOk == 0) {
         $Price = $_POST['Price'];
         $Description = $_POST['Description'];
         $Image = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        
+        echo '| ' .  $Product, $Brand, $Age, $Condition, $Category, $Price, $Description, $Image, $user, $get;
+
 
 
 
@@ -72,20 +81,29 @@ if ($uploadOk == 0) {
 
         //prepared sql statement with the var $stmt
         //(conn from conx file uses prepare function to insert info into the user details table)
-        $stmt = $conn->prepare("INSERT INTO listings (ProductTitle, BrandName, ProductAge, ProductCondition, Category, Price, ProductDescription, ProductImage, username) VALUES (?,?,?,?,?, ?,?,?,?)");
+        $stmt = $conn->prepare("UPDATE listings 
+        SET ProductTitle =?,
+        BrandName = ?,
+        ProductAge = ?,
+        ProductCondition = ?,
+        Category = ?,
+        Price = ?,
+        ProductDescription = ?,
+        ProductImage = ?,
+        username = ?
+
+
+        WHERE ProductID = ?; ");
 
         //now we "bind" the vars to the statement. This should tell the statment the kind of values to expect
         //eg strings "ss (string string)
-        $stmt->bind_param("sssssssss", $Product, $Brand, $Age, $Condition, $Category, $Price, $Description, $Image, $user);
+        $stmt->bind_param("ssssssssss", $Product, $Brand, $Age, $Condition, $Category, $Price, $Description, $Image, $user, $get);
 
         //now we run the statement
         $stmt->execute();
         $stmt->close();
         $conn->close();
-    //header('location: index.php');
 
-        //then we navigate to login.php and close this script!
-        //header("location: login-start.php");
         exit();
         
     }

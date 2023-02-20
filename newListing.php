@@ -4,7 +4,6 @@ include('includes/connx.php');
 include('includes/session-chk.php');
 
 $date = date('d-m-y H:i:s');
-echo $_SESSION['username'];
 
 ?>
 
@@ -20,7 +19,7 @@ echo $_SESSION['username'];
 
 
 
-    <nav class="bg-green-400 border-gray-200 px-2 sm:px-4 py-2.5">
+<nav class="bg-green-400 border-gray-200 px-2 sm:px-4 py-2.5">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="index.php" class="flex items-center">
                 <img src="images/Logo.svg" class="h-8 mr-3 sm:h-9" alt="eRevive" />
@@ -57,6 +56,29 @@ echo $_SESSION['username'];
                                 echo "Login";
                             } else {
                                 echo "Account";
+
+                            }
+                            ?>
+
+
+
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php if (!isset($_SESSION['username'])) {
+                            echo " login-start.php";
+                        } else {
+                            echo "adminHome.php";
+                        } ?>" class="block py-2 pl-3 pr-4
+                            text-white rounded hover:bg-green-300 md:hover:bg-transparent md:border-0
+                            md:hover:bg-green-300 md:p-0 ">
+                            <?php if (!isset($_SESSION['username'])) {
+
+                            } else {
+
+                                echo '<a class="text-white" href="logout.php">Log out </a>';
+
                             }
                             ?>
 

@@ -2,6 +2,8 @@
 include('includes/error-reporting.php');
 include('includes/connx.php');
 include('includes/session-chk.php');
+$admin = $_SESSION['isAdmin'];
+
 
 $date = date('d-m-y H:i:s');
 

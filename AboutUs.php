@@ -100,47 +100,33 @@ $date = date('d-m-y H:i:s');
 
     <!-- Jumbotron -->
     <div class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg " style="
-    background-image: url('images/cover.jpg');
-    height: 400px;
+    background-image: url('images/ewaste.jpg');
+    height: 55vh;
   ">
         <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
             style="background-color: rgba(0, 0, 0, 0.6)">
-            <div class="flex justify-center items-center h-full">
+            <div class="flex justify-center mt-0 h-full md:mt-20  ">
                 <div class="text-white">
-                    <h2 class="font-semibold text-4xl mb-4">eRevive</h2>
-                    <h4 class="font-semibold text-xl mb-6">Tech Doesnt Deserve To Go To The Dump</h4>
-                    <a class="inline-block px-7 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                        href="AboutUs.php" role="button" data-mdb-ripple="true" data-mdb-ripple-color="light">Our Mission</a>
+                    <h4 class="font-semibold text-4xl mb-6 mt-0 md:mt-10">Join the Fight Against E-Waste: Empowering a Sustainable Future with <span class="text-yellow-300">eRevive</span>.</h4>
+                    <p1 class="text-white text-sm ml-16 md:text-xl">Our mission is to create a sustainable future by ending the destructive cycle of e-waste. We believe that technology should serve humanity without harming the planet, and we are committed to helping individuals and organizations responsibly dispose of their electronic devices. Through innovative solutions and education, we aim to reduce the environmental impact of e-waste and build a cleaner, healthier world for future generations.</p1>
+
+
+</h4>
+                    
                 </div>
             </div>
         </div>
     </div>
     <!-- Jumbotron -->
-    <div class="flex items-center justify-center mt-5">
-        <div class="flex border-2 rounded">
-            <input type="text" class="px-4 py-2 w-40 md:w-80 " placeholder="Search...">
-            <button class="flex items-center justify-center px-4 border-l">
-                <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24">
-                    <path
-                        d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                </svg>
-            </button>
-        </div>
-    </div>
+    <
     <div class="m-5">
-    <h1 class="text-center text-4xl"> Check Out The lastest Listings!</h1>
 </div>
 
 
 
 
     <div id="showcase" class=" flex flex-wrap mx-auto justify-center">
-        <?php 
-    //here we can do some funky stuff with "while"
-    include('includes/view-records.php');
 
-    ?>
 
     </div>
 
@@ -154,6 +140,27 @@ $date = date('d-m-y H:i:s');
 
 
 
+    <?php /*
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      } 
+      $sql = "SELECT * FROM listings";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo $row["ProductTitle"] ;
+            echo $row["ProductAge"] ;
+
+        }
+      } else {
+        echo "0 results";
+      }
+      $conn->close();
+      */
+    
+    ?>
 
 
 

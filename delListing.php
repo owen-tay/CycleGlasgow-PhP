@@ -22,7 +22,7 @@ $get = $_GET["ProductID"]
     ?>
 
     <nav class="bg-green-400 border-gray-200 px-2 sm:px-4 py-2.5">
-        <div class="container flex flex-wrap items-center justify-between mx-auto">
+        <div class="container flex flex-wrap items-center justify-between mx-auto ">
             <a href="index.php" class="flex items-center">
                 <img src="images/Logo.svg" class="h-8 mr-3 sm:h-9" alt="eRevive" />
 
@@ -103,7 +103,7 @@ $get = $_GET["ProductID"]
 
 
 
-    <div id="showcase" class="container flex flex-wrap"> <?php
+    <div id="showcase" class="container mx-auto flex flex-wrap"> <?php
             if (isset($_GET['ProductID'])) {
                 // id index exists
             
@@ -116,12 +116,12 @@ $get = $_GET["ProductID"]
                     while ($row = $result->fetch_assoc()) { //fetches one row of data from the results set. Continues until there are no more rows
             
                         echo '<div class= "container text-center mx-auto text-lg mb-5">';
-                        echo '<h1 class="m-5 text-4xl font-bold text-center"> Are you sure you want to Delete' .  $row['ProductTitle'] . '? </h1>';
-                        echo '<a href="deleteScript.php?ProductID=' . $get . '">' . '<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                        echo '<h1 class="m-5 text-4xl font-bold text-center"> Are you sure you want to Delete ' .  $row['ProductTitle'] . '? </h1>';
+                        echo '<a href="deleteScript.php?ProductID=' . $get . '">' . '<button class="bg-green-400 hover:bg-green-300 text-white font-bold py-2 px-4 rounded-full">
                             Yes
                           </button>
                           <a href="adminHome.php">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full  ">
+                        <button class="bg-yellow-300 hover:bg-yellow-200 text-white font-bold py-2 px-4 rounded-full  ">
                             No
                           </button>';
                         echo '</div>';
