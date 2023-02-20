@@ -24,3 +24,9 @@ CREATE TABLE listings(
 );
 
 UPDATE listings SET ProductTitle ="EDIT" WHERE ProductID = "21"; 
+
+
+SELECT * FROM listings
+WHERE BrandName LIKE 'sony'
+OR ProductDescription LIKE 'sony'
+OR ProductTitle Like 'sony';

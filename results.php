@@ -1,7 +1,6 @@
 <?php session_start();
 include('includes/error-reporting.php');
 include('includes/connx.php');
-include('includes/session-chk-homepage.php');
 
 $date = date('d-m-y H:i:s');
 

@@ -1,0 +1,120 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 20, 2023 at 11:52 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `erevive`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listings`
+--
+
+CREATE TABLE `listings` (
+  `ProductID` int(255) NOT NULL,
+  `ProductTitle` varchar(30) NOT NULL,
+  `BrandName` varchar(30) NOT NULL,
+  `ProductAge` varchar(30) NOT NULL,
+  `ProductCondition` varchar(30) NOT NULL,
+  `Price` int(11) NOT NULL,
+  `ProductDescription` varchar(500) NOT NULL,
+  `ProductImage` varchar(200) NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `Category` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `listings`
+--
+
+INSERT INTO `listings` (`ProductID`, `ProductTitle`, `BrandName`, `ProductAge`, `ProductCondition`, `Price`, `ProductDescription`, `ProductImage`, `username`, `Category`) VALUES
+(40, 'Bluetooth Speaker', 'AudioBoom', '3 Years', 'Good', 25, 'Bluetooth Speaker That works well. Can connect to your phone and has the ablility to play music?? Quite WIld.', 'images/productImages/speaker.jpg', 'xxGamerxx', 'Music'),
+(41, 'MacBook Pro (2014)', 'Apple', '5+ Years', 'Good', 150, 'Well used but old laptop. In good condition. Needs a new home!', './images/productImages/macbook.jpg', 'xxGamerxx', 'Computer'),
+(42, 'Iphone 10', 'Apple', '2 Years', 'New', 300, 'New Iphone still in the box. ', './images/productImages/iphone.jpg', 'xxGamerxx', 'Phone'),
+(43, 'Escooter - Xiaomi', 'Xiaomi', '1 Year', 'Poor', 200, 'Working Escooter, Very fast and possibly illegal to run on public roads.', './images/productImages/scooter.jpg', 'xxGamerxx', 'Transport'),
+(44, 'Sony Headphones', 'Sony', '2 Years', 'Poor', 15, 'Possibly Broken, Possibly not... I wish I knew but I have no ears. Amazing Headphones though, Look at those things. Wow!', 'images/productImages/headphones.jpg', 'TECHLOVER', 'Music'),
+(45, 'Walkman Cassette Player', 'Sony', '5+ Years', 'Good', 64, 'Old Sony Walkman. Can play cassettes if that is really what you want to do with your life. ', './images/productImages/walkman.jpg', 'TECHLOVER', 'Music'),
+(46, 'Opens in a new window Panasoni', 'Panasonic ', '2 Years', 'Good', 300, 'The Panasonic 43\" 4K Ultra HD LED Smart TV provides beautiful, crisp visuals and captivating audio.', './images/productImages/TV.jpg', 'TECHLOVER', 'TV\'s'),
+(47, 'Opens in a new window Sony Cyb', 'Sony', '2 Years', 'Poor', 25, 'Sony Cybershot WX350 Digital Camera is a high-end compact camera with a 20x optical zoom lens, high image quality and an advanced noise reduction technology. ', './images/productImages/camera1.jpg', 'TECHLOVER', 'Camera'),
+(48, 'Video Camera', 'Canon', '5+ Years', 'Poor', 10, 'Possibly Broken Camera. Might be good for parts. ', './images/productImages/camera2.jpg', 'BIGSHOT', 'Camera'),
+(49, 'PS3', 'Sony', '5+ Years', 'Poor', 15, 'Ps3 Looking For a new home!', './images/productImages/ps3.jpg', 'BIGSHOT', 'Gaming');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_details`
+--
+
+CREATE TABLE `user_details` (
+  `userID` int(11) NOT NULL,
+  `user` varchar(100) NOT NULL,
+  `pwd` varchar(300) NOT NULL,
+  `isAdmin` varchar(3) DEFAULT 'No'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_details`
+--
+
+INSERT INTO `user_details` (`userID`, `user`, `pwd`, `isAdmin`) VALUES
+(4, 'user1', '$2y$10$XopjL9mt/.iiVuHxpGu6HO3aGbauXdY/hmko5/AJ7Ta3.hL8hGt.q', 'No'),
+(5, 'silhouetteartwork', '$2y$10$LrvNoP8jld5qzWiTqUjvf.5oDTC/cJA1Wr0ahrIEfQZfwsstmzZPG', 'No'),
+(6, 'admin', '$2y$10$mOfZBtoL60R2lRKvDI4fM.XG1t5eoxu7VQKlXwwAbXd0Od4xNdmou', 'Yes'),
+(7, 'zzGamerzz', '$2y$10$ws.pD648fG9ojDD36RBMVeBUcfF5qfcLXAZbn0lfq1PvicEFPYSwy', 'No'),
+(8, 'xxGamerxx', '$2y$10$0zllFVvoGU8UWC5FiYekgOdJlyR6/Cbvsf.m7uQvbRMBnEvITLHgS', 'No'),
+(9, 'TECHLOVER', '$2y$10$tDVlgsKV6LV5lCuUhbXzb.UtQjGz2AcwFlXC9WBVrB43tRTtjMTVi', 'No'),
+(10, 'BIGSHOT', '$2y$10$hMPDbzeNqBtHX9xrjOKareIJq2CwYfK/BQTLb/TXgr.BliRxZefa.', 'No');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `listings`
+--
+ALTER TABLE `listings`
+  ADD PRIMARY KEY (`ProductID`);
+
+--
+-- Indexes for table `user_details`
+--
+ALTER TABLE `user_details`
+  ADD PRIMARY KEY (`userID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `listings`
+--
+ALTER TABLE `listings`
+  MODIFY `ProductID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT for table `user_details`
+--
+ALTER TABLE `user_details`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION

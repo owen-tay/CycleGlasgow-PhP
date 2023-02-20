@@ -24,6 +24,8 @@ if(isset($_POST["submit"])) {
 // Check if file already exists
 if (file_exists($target_file)) {
   echo "Sorry, file already exists.";
+  header("location: index.php");
+  
   $uploadOk = 0;
 }
 
@@ -103,6 +105,7 @@ if ($uploadOk == 0) {
         $stmt->execute();
         $stmt->close();
         $conn->close();
+        header("location: index.php");
 
         exit();
         

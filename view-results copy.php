@@ -1,12 +1,19 @@
-<?php session_start();
+<?php
+$get = $_GET["Category"];
+
 include('includes/error-reporting.php');
 include('includes/connx.php');
 include('includes/session-chk-homepage.php');
 
 $date = date('d-m-y H:i:s');
 
-
 ?>
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,36 +105,17 @@ $date = date('d-m-y H:i:s');
 
     </div>
 
-    <!-- Jumbotron -->
-    <div class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-b-lg " style="
-    background-image: url('images/cover.jpg');
-    height: 400px;
-  ">
-        <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
-            style="background-color: rgba(0, 0, 0, 0.6)">
-            <div class="flex justify-center items-center h-full">
-                <div class="text-white">
-                    <h2 class="font-semibold text-4xl mb-4">eRevive</h2>
-                    <h4 class="font-semibold text-xl mb-6">Tech Doesnt Deserve To Go To The Dump</h4>
-                    <a class="inline-block px-7 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                        href="AboutUs.php" role="button" data-mdb-ripple="true" data-mdb-ripple-color="light">Our Mission</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Jumbotron -->
+    
     <div class="flex items-center justify-center mt-5">
         <div class="flex border-2 rounded">
-            <form action="view-results.php" method="get">
-            <input type="text" name="Search" class="px-4 py-2 w-40 md:w-80 " placeholder="Search...">
-            <button  type = "submit" flex items-center justify-center px-4 border-l">
+            <input type="text" class="px-4 py-2 w-40 md:w-80 " placeholder="Search...">
+            <button class="flex items-center justify-center px-4 border-l">
                 <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24">
                     <path
                         d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
                 </svg>
             </button>
-        </form>
         </div>
         
     </div>
@@ -191,7 +179,7 @@ $date = date('d-m-y H:i:s');
 
     </div>
     <div class="m-5">
-    <h1 class="text-center text-4xl"> Check Out The lastest Listings!</h1>
+    <h1 class="text-center text-4xl"> Results</h1>
 </div>
 
 
@@ -200,9 +188,32 @@ $date = date('d-m-y H:i:s');
     <div id="showcase" class=" flex flex-wrap mx-auto justify-center">
         <?php 
     //here we can do some funky stuff with includes
-    include('includes/view-records.php');
+    
+if ($stmt = $conn->prepare("SELECT * FROM listings WHERE Category = $get")) {
+  $stmt->execute(); // execute sql statement
+  $result = $stmt->get_result(); //returns the results from sql statement
 
-    ?>
+  
+  // output data of each row
+  while ($row = $result->fetch_assoc()) { //fetches one row of data from the results set. Continues until there are no more rows
+
+    echo '<a href="product.php?ProductID=' . $row ['ProductID'] . '">';
+   echo '<div class= "max-w-sm m-4 p-1 bg-yellow-100 rounded-xl"> ';
+ echo '<img src="' . $row['ProductImage'] . '" class=" max-h-64 h-64 w-64 object-cover	 mx-auto rounded-xl" alt="product image">';
+   echo ' <div  class="bg-yellow-100 p-3 rounded-lg text-center"> ';
+      echo ' <h1 class="font-bold text-lg	">' . $row ['ProductTitle'] .   '</h1>' . '<h2>Posted By: ' . $row['username'] . '</h2>' .  '<h2> £' . $row['Price'] . '</h2>';
+      echo '</div>';
+echo '</div>';
+echo '</a>';
+  }
+
+  $stmt->close(); // close sql statement - optional and depends on context
+  $conn->close(); // close dbase connection - optional and depend on context
+
+}
+?>
+
+    
 
     </div>
 
@@ -212,14 +223,3 @@ $date = date('d-m-y H:i:s');
 
 
 
-
-
-
-
-
-
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-</body>

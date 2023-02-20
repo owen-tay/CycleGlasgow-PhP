@@ -1,7 +1,7 @@
 <?php
 $get = $_GET["Category"];
+$search = $_GET["Search"];
 
-include('includes/error-reporting.php');
 include('includes/connx.php');
 include('includes/session-chk-homepage.php');
 
@@ -106,19 +106,7 @@ $date = date('d-m-y H:i:s');
     </div>
 
     
-    <div class="flex items-center justify-center mt-5">
-        <div class="flex border-2 rounded">
-            <input type="text" class="px-4 py-2 w-40 md:w-80 " placeholder="Search...">
-            <button class="flex items-center justify-center px-4 border-l">
-                <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24">
-                    <path
-                        d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                </svg>
-            </button>
-        </div>
-        
-    </div>
+
     <div class="flex items-center justify-center mt-5 ">
         <div class="text-center"> 
         <div class="rounded-full m-4 border-green-300 border ">
@@ -138,7 +126,7 @@ $date = date('d-m-y H:i:s');
     </div>
     <div class="text-center "> 
         <div class="rounded-full m-4 border-green-300 border-2">
-            <a href="view-results.php?Category='Computer'">
+            <a href="view-results.php?Category='Transport'">
                 <img src="images/Transport.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
             </a>
         </div>
@@ -188,6 +176,39 @@ $date = date('d-m-y H:i:s');
     <div id="showcase" class=" flex flex-wrap mx-auto justify-center">
         <?php 
     //here we can do some funky stuff with includes
+
+    if(($_GET['Search'])) {
+      $get = "jdajsd";
+      if ($stmt = $conn->prepare("SELECT * FROM listings
+      WHERE BrandName LIKE '%$search%'
+      OR ProductDescription LIKE '%$search%'
+      OR ProductTitle Like '%$search%';
+      ")) {
+        $stmt->execute(); // execute sql statement
+        $result = $stmt->get_result(); //returns the results from sql statement
+      
+        
+        // output data of each row
+        while ($row = $result->fetch_assoc()) { //fetches one row of data from the results set. Continues until there are no more rows
+      
+          echo '<a href="product.php?ProductID=' . $row ['ProductID'] . '">';
+         echo '<div class= "max-w-sm m-4 p-1 bg-yellow-100 rounded-xl"> ';
+       echo '<img src="' . $row['ProductImage'] . '" class=" max-h-64 h-64 w-64 object-cover	 mx-auto rounded-xl" alt="product image">';
+         echo ' <div  class="bg-yellow-100 p-3 rounded-lg text-center"> ';
+            echo ' <h1 class="font-bold text-lg	">' . $row ['ProductTitle'] .   '</h1>' . '<h2>Posted By: ' . $row['username'] . '</h2>' .  '<h2> £' . $row['Price'] . '</h2>';
+            echo '</div>';
+      echo '</div>';
+      echo '</a>';
+        }
+      
+        $stmt->close(); // close sql statement - optional and depends on context
+        $conn->close(); // close dbase connection - optional and depend on context
+      
+      }
+
+    }
+    else {
+      $search = "assfd";
     
 if ($stmt = $conn->prepare("SELECT * FROM listings WHERE Category = $get")) {
   $stmt->execute(); // execute sql statement
@@ -211,6 +232,7 @@ echo '</a>';
   $conn->close(); // close dbase connection - optional and depend on context
 
 }
+    }
 ?>
 
     
