@@ -93,13 +93,13 @@ $date = date('d-m-y H:i:s');
         </div>
 
     </nav>
-    <div class="bg-green-300 h-2 rounded-b-xl	">
+    <div class="bg-green-300 h-2	">
 
 
     </div>
 
     <!-- Jumbotron -->
-    <div class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg " style="
+    <div class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-b-lg " style="
     background-image: url('images/cover.jpg');
     height: 400px;
   ">
@@ -115,7 +115,7 @@ $date = date('d-m-y H:i:s');
             </div>
         </div>
     </div>
-    <!-- Jumbotron -->
+    <!-- /Jumbotron -->
     <div class="flex items-center justify-center mt-5">
         <div class="flex border-2 rounded">
             <input type="text" class="px-4 py-2 w-40 md:w-80 " placeholder="Search...">
@@ -127,6 +127,66 @@ $date = date('d-m-y H:i:s');
                 </svg>
             </button>
         </div>
+        
+    </div>
+    <div class="flex items-center justify-center mt-5 ">
+        <div class="text-center"> 
+        <div class="rounded-full m-4 border-green-300 border ">
+            <a href="view-results.php?Category='Camera'">
+                <img src="images/camera.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+            </a>
+        </div>
+        Cameras
+    </div>
+    <div class="text-center "> 
+        <div class="rounded-full m-4 border-green-300 border-2">
+            <a href="view-results.php?Category='Phone'">
+                <img src="images/phone.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
+            </a>
+        </div>
+        Phones
+    </div>
+    <div class="text-center "> 
+        <div class="rounded-full m-4 border-green-300 border-2">
+            <a href="view-results.php?Category='Computer'">
+                <img src="images/Transport.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
+            </a>
+        </div>
+        Transport
+    </div>
+    <div class="text-center "> 
+        <div class="rounded-full m-4 border-green-300 border-2">
+            <a href="view-results.php?Category='Computer'">
+                <img src="images/Computer.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+            </a>
+        </div>
+        Computers
+    </div>
+    <div class="text-center "> 
+        <div class="rounded-full m-4 border-green-300 border-2">
+            <a href="view-results.php?Category='TV's'">
+                <img src="images/TV.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+            </a>
+        </div>
+        TV's
+    </div>
+    <div class="text-center "> 
+        <div class="rounded-full m-4 border-green-300 border-2">
+            <a href="view-results.php?Category='Gaming'">
+                <img src="images/gaming.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
+            </a>
+        </div>
+        Gaming
+    </div>
+    <div class="text-center "> 
+        <div class="rounded-full m-4 border-green-300 border-2">
+            <a href="view-results.php?Category='Music'">
+                <img src="images/music.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
+            </a>
+        </div>
+        Music
+    </div>
+
     </div>
     <div class="m-5">
     <h1 class="text-center text-4xl"> Check Out The lastest Listings!</h1>
@@ -137,7 +197,7 @@ $date = date('d-m-y H:i:s');
 
     <div id="showcase" class=" flex flex-wrap mx-auto justify-center">
         <?php 
-    //here we can do some funky stuff with "while"
+    //here we can do some funky stuff with includes
     include('includes/view-records.php');
 
     ?>

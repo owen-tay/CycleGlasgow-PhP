@@ -93,13 +93,13 @@ $date = date('d-m-y H:i:s');
         </div>
 
     </nav>
-    <div class="bg-green-300 h-2 rounded-b-xl	">
+    <div class="bg-green-300 h-2	">
 
 
     </div>
 
     <!-- Jumbotron -->
-    <div class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg " style="
+    <div class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-b-lg " style="
     background-image: url('images/ewaste.jpg');
     height: 55vh;
   ">

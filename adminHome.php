@@ -103,7 +103,15 @@ $date = date('d-m-y H:i:s');
 
 
 
-    <div class="container mx-auto">
+    <div class=" mx-auto">
+        <?php 
+        if ($admin == "Yes") {
+            echo "<h2 class='text-center text-green-400 bg-yellow-100'> Admin Mode</h1>";
+        }
+    
+
+        
+        ?>
         <h2 class="text-4xl text-center mt-4">Your Posts</h2>
 
         <h3 class="text-center m-4 text-xl"> Hello 
