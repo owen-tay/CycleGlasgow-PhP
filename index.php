@@ -18,7 +18,7 @@ $date = date('d-m-y H:i:s');
 
 <body>
 
-    <nav class="bg-green-400 border-gray-200 px-2 sm:px-4 py-2.5">
+    <nav class=" bg-ereviveGreen border-gray-200 px-2 sm:px-4 py-2.5">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="index.php" class="flex items-center">
                 <img src="images/Logo.svg" class="h-8 mr-3 sm:h-9" alt="eRevive" />
@@ -37,10 +37,10 @@ $date = date('d-m-y H:i:s');
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul
-                class="flex flex-col p-4 mt-4   rounded-lg bg-green-400 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md: md:bg-green-400  md: ">
+                class="flex flex-col p-4 mt-4   rounded-lg bg-ereviveGreen md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md: md:bg-ereviveGreen  md: ">
                 <li>
                     <a href="index.php"
-                        class="block py-2 pl-3 pr-4 text-white bg-green-300 rounded md:bg-transparent md:text-yellow-300 md:p-0 md: "
+                        class="block py-2 pl-3 pr-4 text-white bg-ereviveGreen rounded md:bg-transparent md: md:p-0 md: "
                         aria-current="page">Home</a>
                 </li>
                 <li>
@@ -93,7 +93,7 @@ $date = date('d-m-y H:i:s');
         </div>
 
     </nav>
-    <div class="bg-green-300 h-2	">
+    <div class=" bg-ereviveGreen2 h-2	">
 
 
     </div>
@@ -119,7 +119,7 @@ $date = date('d-m-y H:i:s');
     <div class="flex items-center justify-center mt-5">
         <div class="flex border-2 rounded">
             <form action="view-results.php" method="get">
-            <input type="text" name="Search" class="px-4 py-2 w-40 md:w-80 " placeholder="Search...">
+            <input type="text" name="Search" class="px-5 py-2 w-40 md:w-80 " minlength="2" placeholder="Search...">
             <button  type = "submit" flex items-center justify-center px-4 border-l">
                 <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24">
@@ -131,17 +131,18 @@ $date = date('d-m-y H:i:s');
         </div>
         
     </div>
-    <div class="flex items-center justify-center mt-5 ">
+    <div class="absolute screenwide" >
+    <div class="flex flex-wrap items-center justify-center mt-2 md:flex-wrap">
         <div class="text-center"> 
-        <div class="rounded-full m-4 border-green-300 border ">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Camera'">
-                <img src="images/camera.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+                <img src="images/camera.jpg" class="object-contain rounded-full h-16 hover:h-20 ease-in-out duration-300 ">
             </a>
         </div>
         Cameras
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Phone'">
                 <img src="images/phone.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
             </a>
@@ -149,7 +150,7 @@ $date = date('d-m-y H:i:s');
         Phones
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Transport'">
                 <img src="images/Transport.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
             </a>
@@ -157,7 +158,7 @@ $date = date('d-m-y H:i:s');
         Transport
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Computer'">
                 <img src="images/Computer.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
             </a>
@@ -165,7 +166,7 @@ $date = date('d-m-y H:i:s');
         Computers
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='TV's'">
                 <img src="images/TV.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
             </a>
@@ -173,7 +174,7 @@ $date = date('d-m-y H:i:s');
         TV's
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Gaming'">
                 <img src="images/gaming.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
             </a>
@@ -181,7 +182,7 @@ $date = date('d-m-y H:i:s');
         Gaming
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Music'">
                 <img src="images/music.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
             </a>
@@ -190,8 +191,9 @@ $date = date('d-m-y H:i:s');
     </div>
 
     </div>
-    <div class="m-5">
-    <h1 class="text-center text-4xl"> Check Out The lastest Listings!</h1>
+</div>
+    <div class="mt-14">
+    <h1 class="text-center text-4xl mt-96 md:mt-40 relative xsleet:mt-40"> Check Out The lastest Listings!</h1>
 </div>
 
 
@@ -212,7 +214,11 @@ $date = date('d-m-y H:i:s');
 
 
 
+    <footer class="p-4 bg-ereviveGreen rounded-lg shadow md:flex md:items-center md:justify-between md:p-6">
+    <span class="text-sm text-white sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">eRevive</a>. All Rights Reserved.
+    </span>
 
+</footer>
 
 
 

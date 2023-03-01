@@ -22,7 +22,7 @@ $get = $_GET["ProductID"]
 
     ?>
 
-    <nav class="bg-green-400 border-gray-200 px-2 sm:px-4 py-2.5">
+<nav class=" bg-ereviveGreen border-gray-200 px-2 sm:px-4 py-2.5">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="index.php" class="flex items-center">
                 <img src="images/Logo.svg" class="h-8 mr-3 sm:h-9" alt="eRevive" />
@@ -40,64 +40,64 @@ $get = $_GET["ProductID"]
                 </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul
-                    class="flex flex-col p-4 mt-4   rounded-lg bg-green-400 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md: md:bg-green-400  md: ">
-                    <li>
-                        <a href="index.php"
-                            class="block py-2 pl-3 pr-4 text-white bg-green-300 rounded md:bg-transparent md:text-yellow-300 md:p-0 md: "
-                            aria-current="page">Home</a>
-                    </li>
-                    <li>
-                        <a href="<?php if (!isset($_SESSION['username'])) {
-                            echo " login-start.php";
+                <ul
+                class="flex flex-col p-4 mt-4   rounded-lg bg-ereviveGreen md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md: md:bg-ereviveGreen  md: ">
+                <li>
+                    <a href="index.php"
+                        class="block py-2 pl-3 pr-4 text-white bg-ereviveGreen rounded md:bg-transparent md: md:p-0 md: "
+                        aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="<?php if (!isset($_SESSION['username'])) {
+                        echo " login-start.php";
+                    } else {
+                        echo "adminHome.php";
+                    } ?>" class="block py-2 pl-3 pr-4
+                        text-white rounded hover:bg-green-300 md:hover:bg-transparent md:border-0
+                        md:hover:bg-green-300 md:p-0 ">
+                        <?php if (!isset($_SESSION['username'])) {
+                            echo "Login";
                         } else {
-                            echo "adminHome.php";
-                        } ?>" class="block py-2 pl-3 pr-4
-                            text-white rounded hover:bg-green-300 md:hover:bg-transparent md:border-0
-                            md:hover:bg-green-300 md:p-0 ">
-                            <?php if (!isset($_SESSION['username'])) {
-                                echo "Login";
-                            } else {
-                                echo "Account";
+                            echo "Account";
 
-                            }
-                            ?>
+                        }
+                        ?>
 
 
 
 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php if (!isset($_SESSION['username'])) {
-                            echo " login-start.php";
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php if (!isset($_SESSION['username'])) {
+                        echo " login-start.php";
+                    } else {
+                        echo "adminHome.php";
+                    } ?>" class="block py-2 pl-3 pr-4
+                        text-white rounded hover:bg-green-300 md:hover:bg-transparent md:border-0
+                        md:hover:bg-green-300 md:p-0 ">
+                        <?php if (!isset($_SESSION['username'])) {
+
                         } else {
-                            echo "adminHome.php";
-                        } ?>" class="block py-2 pl-3 pr-4
-                            text-white rounded hover:bg-green-300 md:hover:bg-transparent md:border-0
-                            md:hover:bg-green-300 md:p-0 ">
-                            <?php if (!isset($_SESSION['username'])) {
 
-                            } else {
+                            echo '<a class="text-white" href="logout.php">Log out </a>';
 
-                                echo '<a class="text-white" href="logout.php">Log out </a>';
-
-                            }
-                            ?>
+                        }
+                        ?>
 
 
 
 
-                        </a>
-                    </li>
+                    </a>
+                </li>
 
 
-                </ul>
+            </ul>
             </div>
         </div>
 
     </nav>
-    <div class="bg-green-300 h-2 rounded-b-xl">
+    <div class=" bg-ereviveGreen2 h-2	">
 
     </div>
 
@@ -125,12 +125,12 @@ $get = $_GET["ProductID"]
                 echo '<div id="info" class="m-5">';
                 echo '<h1 class="text-4xl font-bold">' .  $row['ProductTitle'] . '</h1>';
                 echo '<h1 class="text-2xl mt-4 ">' . 'Posted by: ' .   $row['username'] . '</h1>';
-                echo '<h1 class="text-2xl mt-4 ">' . '£' .   $row['Price'] . '</h1>';
-                echo '<h1 class="text-2xl mt-4 ">' . '' .   $row['BrandName'] . '</h1>';
-                echo '<h1 class="text-2xl mt-2 ">' . 'Condition: ' .   $row['ProductCondition'] . '</h1>';
-                echo '<h1 class="text-2xl mt-2 ">' . 'Age: ' .   $row['ProductAge'] . '</h1>';
-                echo '<h1 class="text-2xl mt-8 ">' .   $row['ProductDescription'] . '</h1>';
-                echo '<h1 class="text-2xl mt-8 ">' .   $row['Category'] . '</h1>';
+                echo '<h1 class="text-2xl mt-4 ">' . '<span class="text-yellow-400">Price:  </span>' . '£' .   $row['Price'] . '</h1>';
+                echo '<h1 class="text-2xl mt-4 ">' . '<span class="text-yellow-400">Brand: </span>' .   $row['BrandName'] . '</h1>';
+                echo '<h1 class="text-2xl mt-2 ">' . '<span class="text-yellow-400">Condition: </span>' .   $row['ProductCondition'] . '</h1>';
+                echo '<h1 class="text-2xl mt-2 ">' . '<span class="text-yellow-400">Age: </span>' .   $row['ProductAge'] . '</h1>';
+                echo '<h1 class="text-2xl mt-8 ">' .    $row['ProductDescription'] . '</h1>';
+                echo '<h1 class="text-2xl mt-8 ">' . '<span class="text-yellow-400">Catagory: </span>' .    $row['Category'] . '</h1>';
 
 
 

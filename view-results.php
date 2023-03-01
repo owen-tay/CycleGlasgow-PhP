@@ -2,12 +2,40 @@
 $get = $_GET["Category"];
 $search = $_GET["Search"];
 
+
+
 include('includes/connx.php');
 include('includes/session-chk-homepage.php');
+include('includes/error-reporting.php');
+
 
 $date = date('d-m-y H:i:s');
 
+// add search to database 
+if(isset($_GET['Search'])) {
+
+    
+    //prepared sql statement with the var $stmt
+    //(conn from conx file uses prepare function to insert info into the search table)
+    $stmt = $conn->prepare("INSERT INTO searchresults (SearchTerm) VALUES (?)");
+  
+    //now we "bind" the vars to the statement. This should tell the statment the kind of values to expect
+    //eg strings "ss (string string)
+    $stmt->bind_param("s", $search);
+
+  
+    //now we run the statement
+    $stmt->execute();
+    $stmt->close();
+    //header('location: index.php');
+  
+    //then we navigate to login.php and close this script!
+  
+  }
+
+
 ?>
+
 
 
 
@@ -25,7 +53,7 @@ $date = date('d-m-y H:i:s');
 
 <body>
 
-    <nav class="bg-green-400 border-gray-200 px-2 sm:px-4 py-2.5">
+<nav class=" bg-ereviveGreen border-gray-200 px-2 sm:px-4 py-2.5">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="index.php" class="flex items-center">
                 <img src="images/Logo.svg" class="h-8 mr-3 sm:h-9" alt="eRevive" />
@@ -44,10 +72,10 @@ $date = date('d-m-y H:i:s');
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul
-                class="flex flex-col p-4 mt-4   rounded-lg bg-green-400 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md: md:bg-green-400  md: ">
+                class="flex flex-col p-4 mt-4   rounded-lg bg-ereviveGreen md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md: md:bg-ereviveGreen  md: ">
                 <li>
                     <a href="index.php"
-                        class="block py-2 pl-3 pr-4 text-white bg-green-300 rounded md:bg-transparent md:text-yellow-300 md:p-0 md: "
+                        class="block py-2 pl-3 pr-4 text-white bg-ereviveGreen rounded md:bg-transparent md: md:p-0 md: "
                         aria-current="page">Home</a>
                 </li>
                 <li>
@@ -100,24 +128,25 @@ $date = date('d-m-y H:i:s');
         </div>
 
     </nav>
-    <div class="bg-green-300 h-2	">
+    <div class=" bg-ereviveGreen2 h-2	">
 
 
     </div>
 
     
 
-    <div class="flex items-center justify-center mt-5 ">
+    <div class="absolute screenwide" >
+    <div class="flex flex-wrap items-center justify-center mt-2 md:flex-wrap">
         <div class="text-center"> 
-        <div class="rounded-full m-4 border-green-300 border ">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Camera'">
-                <img src="images/camera.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+                <img src="images/camera.jpg" class="object-contain rounded-full h-16 hover:h-20 ease-in-out duration-300 ">
             </a>
         </div>
         Cameras
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Phone'">
                 <img src="images/phone.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
             </a>
@@ -125,7 +154,7 @@ $date = date('d-m-y H:i:s');
         Phones
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Transport'">
                 <img src="images/Transport.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
             </a>
@@ -133,7 +162,7 @@ $date = date('d-m-y H:i:s');
         Transport
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Computer'">
                 <img src="images/Computer.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
             </a>
@@ -141,7 +170,7 @@ $date = date('d-m-y H:i:s');
         Computers
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='TV's'">
                 <img src="images/TV.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
             </a>
@@ -149,7 +178,7 @@ $date = date('d-m-y H:i:s');
         TV's
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Gaming'">
                 <img src="images/gaming.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
             </a>
@@ -157,7 +186,7 @@ $date = date('d-m-y H:i:s');
         Gaming
     </div>
     <div class="text-center "> 
-        <div class="rounded-full m-4 border-green-300 border-2">
+        <div class="rounded-full m-4 border-ereviveGreen border-2">
             <a href="view-results.php?Category='Music'">
                 <img src="images/music.jpg" class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20 ">
             </a>
@@ -166,15 +195,17 @@ $date = date('d-m-y H:i:s');
     </div>
 
     </div>
-    <div class="m-5">
-    <h1 class="text-center text-4xl"> Results</h1>
 </div>
-
-
+    <div class="mt-14">
+    <h1 class="text-center text-4xl mt-96 md:mt-40 relative xsleet:mt-40"> Check Out The lastest Listings!</h1>
+</div>
 
 
     <div id="showcase" class=" flex flex-wrap mx-auto justify-center">
         <?php 
+
+
+
     //here we can do some funky stuff with includes
 
     if(($_GET['Search'])) {

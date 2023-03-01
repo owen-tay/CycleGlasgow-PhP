@@ -107,12 +107,12 @@ $date = date('d-m-y H:i:s');
             <!--Convert some characters to HTML entities and strips HTML and PHP tags from a string -->
             <!-- title input -->
             <div class="form-outline mb-4">
-                <input type="text" id="Product" name="Product" class="form-control" required>
+                <input type="text" minlength="3" maxlength="30" id="Product" name="Product" class="form-control" required>
                 <label class="form-label" for="Product">Product Title</label>
             </div>
             <!-- Brand input -->
             <div class="form-outline mb-4">
-                <input type="text" id="Brand" name="Brand" class="form-control" required>
+                <input type="text" minlength="2" maxlength="20" id="Brand" name="Brand" class="form-control" required>
                 <label class="form-label" for="Brand">Brand Name</label>
             </div>
             <!-- age input -->
@@ -152,12 +152,12 @@ $date = date('d-m-y H:i:s');
             </div>
             <!-- Price input -->
             <div class="form-outline mb-4">
-                <input type="text" id="Price" name="Price" class="form-control" required>
+                <input type="number" step="any" id="Price" name="Price" class="form-control" required>
                 <label class="form-label" for="Price">Price in £</label>
             </div>
             <!-- Description input -->
             <div class="form-outline mb-4">
-                <input type="text" id="Description" name="Description" class="form-control" required>
+                <input type="text" minlength="2" maxlength="300" id="Description" name="Description" class="form-control" required>
                 <label class="form-label" for="Description">Description</label>
             </div>
             <!-- iamge (temp) input 
@@ -171,7 +171,7 @@ $date = date('d-m-y H:i:s');
             <form action="addProduct.php" method="post" enctype="multipart/form-data">
                 Select image to upload:
                 <input type="file" required name="fileToUpload" id="fileToUpload required">
-                <input type="submit" value="Upload Image"
+                <input type="submit" value="Upload"
                     class="p-2 pl-6 pr-6 rounded-xl bg-orange-300 hover:bg-orange-200" name="submit">
             </form>
 

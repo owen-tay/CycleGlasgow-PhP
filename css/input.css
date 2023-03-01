@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*npx tailwindcss -i css/input.css -o dist/output.css --watch */
+
+.screenwide {
+    width: 99%;
+
+}

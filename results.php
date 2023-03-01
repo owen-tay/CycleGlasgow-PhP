@@ -3,6 +3,7 @@ include('includes/error-reporting.php');
 include('includes/connx.php');
 
 $date = date('d-m-y H:i:s');
+// add search to database 
 
 
 ?>
