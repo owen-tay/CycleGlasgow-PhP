@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username = "u785699759_ereviveadmin";
-$password = "Erevivedbpassword1!";
-$dbase = "u785699759_ereviveproject";
+$username = "root";
+$password = "";
+$dbase = "erevive";
 
 
 //mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // for error reporting

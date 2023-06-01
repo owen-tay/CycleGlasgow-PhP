@@ -1,17 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.{js,php}"],
+  content: [
+    './**/*.js',
+    './**/*.php',
+    './**/*.html',
+  ],
   theme: {
-    colors: {
-      ereviveGreen: '#31c48d',
-      ereviveGreen2: '#84e1bc',
-      ereviveBrown: '#f4ead5',
-      ereviveBrown2: '#e9dfcb',
-    },
+    extend: {colors: {
+      pink: {
+        cycle: '#F796FF',
 
-    
-    extend: {},
-    
+      },
+      blue: {
+        cycle: '#4ADDFF',
+
+      },
+    }},
   },
   plugins: [
     require('flowbite/plugin')

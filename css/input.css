@@ -1,10 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*npx tailwindcss -i css/input.css -o dist/output.css --watch */
 
-.screenwide {
-    width: 99%;
 
+/*style all as google font*/
+*>*{
+    font-family: 'Roboto', sans-serif;
+  }
+
+
+  
+.header {
+    background: url(../images/header.png), linear-gradient(90deg, #F796FF 2.02%, #4ADDFF 98.76%);
+  background-blend-mode: luminosity, normal;
+  height: 20rem;
+  border-radius: 2rem;
+  }
+  
+  .HeaderImgDiv {
+    background: url(../images/headerImg.png);
+    background-blend-mode:exclusion;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+    background-size: 60%;
+    background-position: center;
+  
+  
+  
+  }
+  
+  .imagefix {
+    padding-right: 1rem;
+  }
+  
+  
+  .negative-margin {
+    margin-left: -10px;
+    margin-right: 10px;
+    margin-bottom: 1px;
+  }
+  
+  .blogJumbo {
+    background-image: url("../images/glasgowImage.jpg"); 
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+  }
+  
+  /*blog card*/
+  
+  .blogCard {
+    width: 15rem;
+    height: 17rem;
+    margin: 1rem;
+  }
+  
+.blogimage {
+  width: 15rem;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
+
+
+  /*blog page titles*/
+  
+  .blogHeader {
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+  }
+  
+  .blog1 {
+    background-image: url("../images/bikewall.jpg"); 
+  
+  }
+  .blog2 {
+    background-image: url("../images/dutchbike.jpg"); 
+  
+  }
+  .blog3 {
+    background-image: url("../images/bikeup.jpg"); 
+  
+  }
+  .blog4 {
+    background-image: url("../images/bikewall.jpg"); 
+  
+  }
+  
+  /*this fixes background of index showing a bad part of the image*/
+  @media only screen and (max-width: 941px) {
+    .blogJumbo {
+      background-position: center;
+    }
+  }
+  
+  
+  /*highlight / select change*/
+  
+  ::selection {
+    background: #4ADDFF; /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: #4ADDFF; /* Gecko Browsers */
+  }
+  
+  /*mapbox*/
+  
+  #map { 
+    width: auto;
+    height: 30rem;
+  }
+
+  .smallButton {
+
+   width: 100px;
+  }
+
+  .screenwide {
+    width: 100%;
+  }

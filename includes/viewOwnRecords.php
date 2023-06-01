@@ -58,24 +58,32 @@ if ($stmt = $conn->prepare("SELECT * FROM listings WHERE username = '$user'")) {
   while ($row = $result->fetch_assoc()) { //fetches one row of data from the results set. Continues until there are no more rows
 
     echo '<a href="product.php?ProductID=' . $row['ProductID'] . '">';
-    echo '<div class= "max-w-sm m-4 p-1 bg-yellow-100 rounded-xl"> ';
-    echo '<img src="./' . $row['ProductImage'] . '" class=" max-h-64 h-64 w-64 object-cover	 mx-auto rounded-xl" alt="product image">';
-    echo ' <div  class="bg-yellow-100 p-3 rounded-lg text-center"> ';
-    echo ' <h1 class="font-bold text-lg	">' . $row['ProductTitle'] . '</h1>' . '<h2>Posted By: ' . $row['username'] . '</h2>' . '<h2> £' . $row['Price'] . '</h2>';
-    echo '</div>';
-    echo '<div class="flex flex-wrap mx-auto justify-center mb-3">
-      <a href="editListing.php?ProductID=' . $row['ProductID'] . '">
-        <button class="bg-yellow-300 hover:bg-yellow-200 text-white font-bold py-2 px-4 rounded-full  ">
-             Edit 
-          </button>
-         </a>
-         <a href="delListing.php?ProductID=' . $row['ProductID'] . '">
-         <button class="bg-green-400 hover:bg-green-300 text-white font-bold py-2 px-4 rounded-full">
-          Delete
-          </button></a>       
-         </div>';
-    echo '</div>';
-    echo '</a>';
+echo '<div class="max-w-sm m-4 p-1 border border-1  border-gray-200 hover:border-pink-cycle border-dashed rounded-xl flex justify-center items-center text-left card">';
+
+// Image column
+echo '<div class="w-2/2">';
+echo '<img src="' . $row['ProductImage'] . '" class="h-64 w-48 object-cover rounded-xl" alt="product image">';
+echo '</div>';
+
+echo '<div class="w-1/2 p-4 rounded-lg">';
+echo '<h1 class="font-bold text-lg">' . $row['ProductTitle'] . '</h1>';
+echo '<h2>Posted By: ' . $row['username'] . '</h2>';
+
+// Buttons
+echo '<div class="flex flex-wrap-reverse justify-start  ">';
+echo '<a href="editListing.php?ProductID=' . $row['ProductID'] . '">';
+echo '<button class=" m-3" > <span class="bg-pink-200 p-3  rounded-md">CHANGE</span></button>';
+echo '</a>';
+echo '<a href="delListing.php?ProductID=' . $row['ProductID'] . '">';
+echo '<button class=" m-3" ><span class="bg-pink-200 p-3 rounded-md">DELETE</span></button>';
+echo '</a>';
+echo '</div>';
+
+echo '</div>';
+echo '</div>';
+echo '</a>';
+
+    
 
 
   }

@@ -118,6 +118,7 @@ $date = date('d-m-y H:i:s');
         </div>
     </div>
     <!-- Jumbotron -->
+    
 
     <div class="m-5">
 </div>
@@ -129,6 +130,8 @@ $date = date('d-m-y H:i:s');
 
 
     </div>
+
+    <?php include('modules/footer.php') ?>
 
 
 
@@ -162,14 +165,5 @@ $date = date('d-m-y H:i:s');
     
     ?>
 
-    <footer class="p-4 bg-green-400 rounded-lg shadow md:flex md:items-center md:justify-between md:p-6">
-    <span class="text-sm text-white sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">eRevive</a>. All Rights Reserved.
-    </span>
 
-</footer>
-
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
