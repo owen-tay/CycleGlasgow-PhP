@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="bg-white shadow-xl rounded-lg overflow-hidden w-full max-w-3xl">
             <div class="md:flex">
                 <div class="hidden md:block md:w-1/2">
-                    <img class="object-cover h-full w-full" src="images/glasgowimage.jpg" alt="Placeholder Image">
+                    <img class="object-cover h-full w-full"
+                        src="https://cycleglagow.yupstuff.net/images/glasgowImage.jpg" alt="Placeholder Image">
                 </div>
                 <div class="w-full p-8">
                     <div class="text-center mb-6">
@@ -75,9 +76,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <button type="submit" name="submit"
                                 class="bg-gradient-to-r from-pink-cycle to-blue-cycle w-full py-2 text-white rounded">Register</button>
                         </div>
+                        <a href="index.php">
+                            <div
+                                class="bg-gradient-to-r from-pink-cycle to-blue-cycle w-full py-2 mt-3 text-white rounded text-center">
+                                Back</div>
+                        </a>
+
                     </form>
-                    <p class="text-blue-cycle text-center">
-                        If you have an account, <a href="login-start.php" class="text-pink-cycle"><span>click
+                    <p class="text-black text-center">
+                        If you have an account, <a href="login-start.php" class="text-blue-700"><span>click
                                 here</span></a>
                     </p>
                 </div>

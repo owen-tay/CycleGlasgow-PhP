@@ -1,10 +1,12 @@
 <?php
+ session_start();
+include('includes/error-reporting.php');
+include('includes/connx.php');
+include('includes/session-chk-homepage.php');
 $getCategory = isset($_GET["Category"]) ? $_GET["Category"] : "";
 $getSearch = isset($_GET["Search"]) ? $_GET["Search"] : "";
 
-include('includes/connx.php');
-include('includes/session-chk-homepage.php');
-include('includes/error-reporting.php');
+
 
 $date = date('d-m-y H:i:s');
 
@@ -19,78 +21,94 @@ $date = date('d-m-y H:i:s');
 
 <body>
     <?php include('includes/navbar.php'); ?>
+    <div class="blogHeader blog2 h-56 md:h-80 w-full drop-shadow-2xl">
+        <div class=" h-56 md:h-80 w-full bg-gray-700 bg-opacity-60">
+          <div class="text-center flex justify-center">
+            <h2 class="pt-20 text-2xl md:text-4xl font-bold text-white">
+            Seller Listings
+            </h2>
+          </div>
+        </div>
+      </div>
 
-    <div class="flex justify-center">
+    <div class=" absolute mb-12 md: w-full catabreak">
+    <div class="flex justify-center relative ">
         <div class="flex flex-wrap items-center justify-center mt-2 md:flex-wrap">
             <div class="text-center">
-                <div class="rounded-full m-4 border-ereviveGreen border-2">
+                <div class="rounded-full m-2 p-2 border-ereviveGreen border-2">
                     <a href="view-results.php?Category=<?php echo urlencode('Bike'); ?>">
-                        <img src="images/bike.jpg"
+                        <img src="images/bike.jpg" alt="bike"
                             class="object-contain rounded-full h-16 hover:h-20 ease-in-out duration-300">
+                            Bike
                     </a>
                 </div>
-                Bike
+                
             </div>
             <div class="text-center">
-                <div class="rounded-full m-4 border-ereviveGreen border-2">
+                <div class="rounded-full m-2 p-2 border-ereviveGreen border-2">
                     <a href="view-results.php?Category=<?php echo urlencode('Electric Bike'); ?>">
-                        <img src="images/electric-bike.jpg"
+                        <img src="images/electric-bike.jpg" alt="Ebike"
                             class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+                            Electric Bike
+
                     </a>
                 </div>
-                Electric Bike
             </div>
             <div class="text-center">
-                <div class="rounded-full m-4 border-ereviveGreen border-2">
+                <div class="rounded-full m-2 p-2 border-ereviveGreen border-2">
                     <a href="view-results.php?Category=<?php echo urlencode('Helmet'); ?>">
-                        <img src="images/helmet.jpg"
+                        <img src="images/helmet.jpg" alt="Helmet"
                             class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+                            Helmet
                     </a>
                 </div>
-                Helmet
             </div>
             <div class="text-center">
-                <div class="rounded-full m-4 border-ereviveGreen border-2">
+                <div class="rounded-full m-2 p-2 border-ereviveGreen border-2">
                     <a href="view-results.php?Category=<?php echo urlencode('Sunglasses'); ?>">
-                        <img src="images/sunglasses.jpg"
+                        <img src="images/sunglasses.jpg" alt="Sunglasses"
                             class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+                            Sunglasses
                     </a>
                 </div>
-                Sunglasses
+                
             </div>
             <div class="text-center">
-                <div class="rounded-full m-4 border-ereviveGreen border-2">
+                <div class="rounded-full m-2 p-2 border-ereviveGreen border-2">
                     <a href="view-results.php?Category=<?php echo urlencode('Accessories'); ?>">
-                        <img src="images/accessories.jpg"
+                        <img src="images/accessories.jpg" alt="Accessories"
                             class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+                            Accessories
                     </a>
                 </div>
-                Accessories
             </div>
             <div class="text-center">
-                <div class="rounded-full m-4 border-ereviveGreen border-2">
+                <div class="rounded-full m-2 p-2 px-4 border-ereviveGreen  border-2">
                     <a href="view-results.php?Category=<?php echo urlencode('Tools'); ?>">
-                        <img src="images/tools.jpg"
+                        <img src="images/tools.jpg" alt="Tools"
                             class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+                            Tools 
+
                     </a>
                 </div>
-                Tools
             </div>
             <div class="text-center">
-                <div class="rounded-full m-4 border-ereviveGreen border-2">
+                <div class="rounded-full m-2 p-2 border-ereviveGreen border-2">
                     <a href="view-results.php?Category=<?php echo urlencode('Clothes'); ?>">
-                        <img src="images/clothes.jpg"
+                        <img src="images/clothes.jpg" alt="Clothes"
                             class="object-contain rounded-full h-16 ease-in-out duration-300 hover:h-20">
+                            Clothes
                     </a>
                 </div>
-                Clothes
+                
             </div>
         </div>
+    </div>
     </div>
 
 
     <div class="mt-14">
-        <h1 class="text-center text-4xl mt-40 md:mt-40 relative">Check Out The latest Listings!</h1>
+        <h1 class="text-center text-4xl mt-40 md:mt-30 relative">Check Out The latest Listings!</h1>
     </div>
 
     <div id="showcase" class="flex flex-wrap mx-auto justify-center">

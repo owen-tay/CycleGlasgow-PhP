@@ -39,7 +39,7 @@ $date = date('d-m-y H:i:s');
         </div>
 
         <div class="HeaderImgDiv col-span-1 hidden  sm:inline ">
-            <div class="text-1xl pt-0 sm:pt-72 text-start col-span-1 text-white font-bold">
+            <div class="text-1xl pt-0 sm:pt-72 text-start col-span-1 text-white underline font-bold">
                 A project to help educate and grow cycling within Glasgow
             </div>
         </div>
@@ -48,11 +48,11 @@ $date = date('d-m-y H:i:s');
 
 
     <div class="flex justify-center items-center flex-wrap gap-14 content-evenly py-10 md:flex">
-        <div class="grid grid-row sm:grid-rows-1 max-w-xl pt-6">
+        <div class="grid grid-row sm:grid-rows-1 max-w-xl py-6">
             <img src="images/upbike.svg" class="row-start-1 imagefix" alt="Logo" />
             <div class="row-end-2">
                 <h1 class="text-3xl font-bold">Cycling in Glasgow is Up!</h1>
-                <p1 class="text-lg pt-2">
+                <p1 class=" text-lg pt-2">
                     In the last 12 years, Glasgow council has reported a 165% increase
                     of cycling within the city centre.
                 </p1>
@@ -95,36 +95,41 @@ $date = date('d-m-y H:i:s');
                             <div
                                 class="bg-gradient-to-r from-pink-cycle to-blue-cycle w-48 h-9  text-white rounded-2xl line text-center pt-1 drop-shadow-lg hoverSize text-lg transition ease-in-out">
                                 Read our blog!
+                            </div>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Searchbar -->
 
 
-    <div class="flex flex-row items-center justify-center mt-5">
-  <div>
-    <h1 class="p-5 text-md md:text-md font-bold text-black text-center">
-      Search for products on sale by the community here!
-    </h1>
-  </div>
-  <div class="relative">
-    <form action="view-results.php" method="get">
-      <div class="flex">
-        <input type="text" name="Search" class="py-2 pr-4 pl-10 border-2 rounded-l focus:outline-none   focus:border-transparent"
-          minlength="2" placeholder="Search..." autocomplete="off">
-        <button type="submit" class="flex items-center px-4 border-2 rounded-l bg-white focus:outline-none focus:ring-2 focus:border-transparent">
-          <svg class="w-6 h-6 text-black" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-          </svg>
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
+    <div class="flex flex-col sm:flex-row items-center justify-center mt-5">
+        <div>
+            <h1 class="p-5 text-md md:text-md font-bold text-black text-center">
+                Search for products on sale by the community here!
+            </h1>
+        </div>
+        <div class="relative">
+            <form action="view-results.php" method="get">
+                <div class="flex">
+                    <input type="text" name="Search"
+                        class="sm:py-1 py:0 sm:pr-2 pr-0 sm:pl-2 pl-0 border-2 rounded-l focus:outline-none   focus:border-transparent"
+                        minlength="2" placeholder="Search..." autocomplete="off">
+                    <button type="submit"
+                        class=" items-center px-2 border-2 rounded-l bg-white focus:outline-none focus:ring-2 focus:border-transparent">
+                        <svg class="sm:w-6 sm:h-6 w-3 h-3 text-black" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 

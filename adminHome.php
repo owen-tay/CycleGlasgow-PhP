@@ -19,7 +19,7 @@ $date = date('d-m-y H:i:s');
 </head>
 
 
-<body>
+<body >
     <?php include('includes/navbar.php'); ?>
 
 
@@ -28,7 +28,7 @@ $date = date('d-m-y H:i:s');
     <div class=" mx-auto">
         <?php
         if ($admin == "Yes") {
-            echo "<h2 class='text-center text-green-400 bg-yellow-100'> Admin Mode</h1>";
+            echo "<h2 class='text-center text-pink-cycle bg-blue'> Admin Mode</h1>";
         }
 
 
@@ -51,13 +51,15 @@ $date = date('d-m-y H:i:s');
 
         </a>
     </div>
-    <div id="showcase" class=" flex flex-wrap mx-auto justify-center">
+    <div id="showcase" class=" flex flex-wrap mx-auto justify-center pb-96">
         <?php
         //here we can do some funky stuff with "while"
         include('includes/viewOwnRecords.php');
 
         ?>
     </div>
+    <?php include('includes/footer.php'); ?>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>

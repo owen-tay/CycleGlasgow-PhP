@@ -15,6 +15,15 @@
   }
 
 
+ /*styles for login and register buttons svg*/
+ 
+ .username {
+  background-image: url(../images/at.svg);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-size: 2.5rem 2.5rem;
+}
   
 .header {
     background: url(../images/header.png), linear-gradient(90deg, #F796FF 2.02%, #4ADDFF 98.76%);
@@ -22,7 +31,24 @@
   height: 20rem;
   border-radius: 2rem;
   }
+/*makes header smaller*/
+
+  @media only screen and (max-width: 600px) {
+    .header {
+    height: 10rem;
+    }
+  }
+
+  /*makes cata smaller*/
+
+  @media only screen and (max-width: 850px) {
+    .catabreak {
+width: 20%;
+background-color: #F796FF;    }
+  }
   
+
+
   .HeaderImgDiv {
     background: url(../images/headerImg.png);
     background-blend-mode:exclusion;
@@ -70,6 +96,14 @@
 
 
   /*blog page titles*/
+
+  .listingHeader {
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+
+
+  }
   
   .blogHeader {
     background-repeat: no-repeat;
@@ -85,12 +119,14 @@
     background-image: url("../images/dutchbike.jpg"); 
   
   }
-  .blog3 {
-    background-image: url("../images/bikeup.jpg"); 
+
   
-  }
   .blog4 {
     background-image: url("../images/bikewall.jpg"); 
+  
+  }
+  .blog5 {
+    background-image: url("../images/bikeparts.jpg"); 
   
   }
   

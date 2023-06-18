@@ -6,6 +6,8 @@ include('includes/session-chk.php');
 
 $get = $_GET["ProductID"];
 $date = date('d-m-y H:i:s');
+$admin = $_SESSION['isAdmin'];
+
 
 if (isset($_GET['ProductID'])) {
     if ($stmt = $conn->prepare("SELECT * FROM listings WHERE ProductID = ?")) {
@@ -78,28 +80,30 @@ if (isset($_GET['ProductID'])) {
 
                         </div>
                         <div class="mb-4">
-                            <label class="block text-sm font-semibold mb-2" for="Price">Price in £</label>
+                            <label class="form-label" for="Price">Price in £</label>
                             <input type="number" step="any" id="Price" name="Price"
                                 class="form-control rounded border-gray-300 py-2 px-3 w-full" value="<?= $row['Price'] ?>" required>
                         </div>
                         <div class="mb-4">
-                            <label class="block text-sm font-semibold mb-2" for="Description">Description</label>
+                            <label class="form-label" for="Description">Description</label>
                             <input type="text" minlength="2" maxlength="300" id="Description" name="Description"
                                 class="form-control rounded border-gray-300 py-2 px-3 w-full"
                                 value="<?= $row['ProductDescription'] ?>" required>
                         </div>
                         <form action="/includes/editProduct.php?ProductID=<?= $get ?>" method="post" enctype="multipart/form-data">
-                            Select image to upload:
+                            <label class="form-label" for="fileToUpload"> Select image to upload:
+                            </label>
+
                             <input type="file" required name="fileToUpload" id="fileToUpload"
                                 class="form-control rounded border-gray-300 py-2 px-3">
                             <input type="submit" value="Upload" class="p-2 px-4 pl-6 pr-6 rounded-xl bg-pink-300 hover:bg-pink-200"
                                 name="submit">
                         </form>
-                        <a class="p-2 px-4 pl-6 pr-6 rounded-xl bg-pink-300 hover:bg-pink-200 href=" adminHome.php">Back</a>
+                        <a class="p-2 px-4 pl-6 pr-6 rounded-xl bg-pink-300 hover:bg-pink-200" href="adminHome.php">Back</a>
                     </form>
                 </div>
 
-                <?php include('includes/navbar.php'); ?>
+                <?php include('includes/footer.php'); ?>
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
             </body>

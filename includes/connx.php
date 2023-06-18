@@ -1,4 +1,10 @@
 <?php
+/*
+$servername = "localhost";
+$username = "u785699759_cycleglasgowdb";
+$password = "cycleglasgowdbBigPassword11!";
+$dbase = "u785699759_cycleglasgowdb";
+*/
 
 $servername = "localhost";
 $username = "root";
